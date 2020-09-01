@@ -1,4 +1,4 @@
-# Session ID - Session Title
+# DAT162 - Get the Most from Sensitive Data: SAP HANA Data Anonymization and Masking
 
 ## Description
 
