@@ -17,11 +17,13 @@ This is only a quick description on the steps that have to be done to create an 
 
 ## Creating a SAP HANA Cloud Trial Instance
 
-After having your SAP Cloud Platform Trial Account ready, you should proceed creating a HANA Cloud Trial instance. In order to do so, please follow the following steps:
+After having your SAP Cloud Platform Trial Account ready, you should proceed creating a HANA Cloud Trial instance. Please make sure you remember the password you will set for the DBADMIN user, since we will need this later. In order to do so, please follow the following steps:
 
 1. Enable the "Entitlements" required to start a SAP HANA Cloud instance. In order to do so, please follow this manual https://saphanajourney.com/hana-cloud/learning-article/starting-a-sap-hana-cloud-trial-when-you-have-an-existing-sap-cloud-platform-trial/
 
-2. Create and start your SAP HANA Cloud Trial Instance as explained in this tutorial: https://saphanajourney.com/hana-cloud/learning-article/how-to-create-your-trial-sap-hana-cloud-instance/ Note that for this tutorial we do not have any special requirements other than the standard settings described in the step-by-step guide.
+2. Create and start your SAP HANA Cloud Trial Instance as explained in this tutorial: https://saphanajourney.com/hana-cloud/learning-article/how-to-create-your-trial-sap-hana-cloud-instance/ **Note**: For this tutorial we do not require that you allow all external IP addresses to access your SAP HANA Cloud instance. In particular, in step 4, please choose the option as shown here:
+<br>![](/exercises/ex0/images/hana_cloud_set_ip_to_all.png)
+ This is necessary to allow the Web IDE to access your instance during deployment. For a productive setup, you might consider limiting the IP address ranges, but in order to make it simple for this tutorial, we allow all. This setting can also be changed after instance creation, i.e., limits can also be applied afterwards.
 
 At the very end, your HANA Cloud instance should be running, as indicated by a green banner:
 
