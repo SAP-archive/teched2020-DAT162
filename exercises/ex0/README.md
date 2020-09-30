@@ -1,10 +1,10 @@
-# Getting Started
+# Exercise 0 - Setting up the environment
 
 In this exercise you will learn how to prepare your environment for the actual part of this hands on session. Note that this session is based on trial accounts which are completely free of charge. We also recommend using (new) trial accounts to work in an isolated environment.
 
 In particular we require to have trials of **SAP HANA Cloud** and **SAP Web IDE** (on Cloud Foundry). Furthermore, a trial account for the **SAP Cloud Platform** is the starting point for the product trials, and is required as well.
 
-## Creating a SAP Cloud Platform Trial Account
+## Exercise 0.1 - Creating a SAP Cloud Platform Trial Account
 
 In order to create a SAP Cloud Platform Trial Account, you have to conduct the following steps. This trial account is required to start the SAP HANA Cloud and SAP Web IDE trial.
 
@@ -15,7 +15,7 @@ In order to create a SAP Cloud Platform Trial Account, you have to conduct the f
 
 This is only a quick description on the steps that have to be done to create an account. More detailed instructions can be found here: https://developers.sap.com/tutorials/hcp-create-trial-account.html.
 
-## Creating a SAP HANA Cloud Trial Instance
+## Exercise 0.2 - Creating a SAP HANA Cloud Trial Instance
 
 After having your SAP Cloud Platform Trial Account ready, you should proceed creating a HANA Cloud Trial instance. Please make sure you remember the password you will set for the DBADMIN user, since we will need this later. In order to do so, please follow the following steps:
 
@@ -31,7 +31,7 @@ At the very end, your HANA Cloud instance should be running, as indicated by a g
 
 After having created and started your SAP HANA Cloud Trial instance, continue with the SAP Web IDE trial.
 
-## Creating a SAP Web IDE Trial Instance
+## Exercise 0.3 - Creating a SAP Web IDE Trial Instance
 
 Within your SAP Cloud Platform Trial, you have to subscribe to the SAP Web IDE as well for doing this hands-on session. Please refer to this guide, on how to do this: https://developers.sap.com/tutorials/webide-multi-cloud.html The very last step is to bookmark the Web IDE which we also recommend, since we will use the Web IDE intensively in the course of this session.
 

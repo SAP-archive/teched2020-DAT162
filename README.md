@@ -15,9 +15,14 @@ The requirements to follow the exercises in this repository are:
 - SAP Web IDE
 Both are available as a trial, and this tutorial will focus on the trial version that it is accessible to anyone.
 
+Instructions on how to start and use such trials are included in [Exercise 0](exercises/ex0/)
+
 ## Exercises
 
-- [Getting Started](exercises/ex0/)
+- [Exercise 0 - Setting up the environment](exercises/ex0/)
+    - [Exercise 0.1 - Creating a SAP Cloud Platform Trial Account](exercises/ex0#exercise-01-Creating-a-SAP-Cloud-Platform-Trial-Account)
+    - [Exercise 0.2 - Creating a SAP HANA Cloud Trial Instance](exercises/ex0#exercise-01-Creating-a-SAP-HANA-Cloud-Trial-Instance)
+    - [Exercise 0.3 - Creating a SAP Web IDE Trial Instance](exercises/ex0#exercise-03-Creating-a-SAP-Web-IDE-Trial-Instance)
 - [Exercise 1 - First Exercise Description](exercises/ex1/)
     - [Exercise 1.1 - Exercise 1 Sub Exercise 1 Description](exercises/ex1#exercise-11-sub-exercise-1-description)
     - [Exercise 1.2 - Exercise 1 Sub Exercise 2 Description](exercises/ex1#exercise-12-sub-exercise-2-description)

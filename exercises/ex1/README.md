@@ -65,7 +65,7 @@ In this part of Exercise 1 we will build and deploy the example application to S
 
 So please memorize these steps for later.
 
-## Exercise 1.4 Exploring the data and understanding the demo scenario
+## Exercise 1.4 Exploring the data 
 
 After the succesful deployment of the demo project including demo data, we want to explore that data to get an idea of the scenario. During this process we will learn how to access the "Database Explorer" and execute SQL queries.
 
@@ -106,7 +106,47 @@ FROM "SALARYSQLDEMO"."SalarySQLDemo.db::Salaries"
 8. Click the green arrow to run the statement, and you will see the results on the lower end of the screen.
 <br>![](/exercises/ex1/images/run_sql_query.png)
 
+9. With the help of the SQL console, you can execute arbitrary SQL queries, e.g., you could select all the male employees with:
 
+```SQL
+SELECT TOP 1000
+	"id",
+	"firstname",
+	"lastname",
+	"account_no",
+	"salary",
+	"start_year",
+	"gender",
+	"region",
+	"zipcode",
+	"T-Level",
+	"education"
+FROM "SALARYSQLDEMO"."SalarySQLDemo.db::Salaries"
+WHERE "gender" = 'm';
+```
+## Exercise 1.5 Understanding the demo scenario
+
+In this exercise, we outline the scenario that is valid for the remaining part of this hands-on sesion: 
+
+The HR department of a company holds their employee data in a database. This database contains a single table SALARIES with one record for each employee and the following fields:
+
+1. ID
+2. FIRST_NAME
+3. LAST_NAME
+4. ACCOUNT_NO
+5. SALARY
+6. START_YEAR
+7. GENDER
+8. REGION
+9. ZIP_CODE
+10. T_LEVEL
+11. EDUCATION
+
+The column names make the type of stored information obvious. From a privacy point of view, three different types of columns are present: 
+
+1. Direct identifiers: ACCOUNT_NO is a uniquely identifying column for each person, FIRST_NAME and LAST_NAME in conjunction are also uniquely identifying. In order to anonymize a data set these values must not be released at all!
+2. Sensitive values: SALARY is a sensitive value. In an anonymized data set, one should not be able to link its value to a single individual by means of background knowledge.
+3. Quasi-identifiers: all remaining fields are quasi-identifiers. In conjunction (and together with background knowledge), their values may be used to link an entry in the database back to an individual, thus revealing the persons sensitve value or its membership in the database.
 
 
 
