@@ -27,7 +27,7 @@ After having your SAP Cloud Platform Trial Account ready, you should proceed cre
 
 At the very end, your HANA Cloud instance should be running, as indicated by a green banner:
 
-<br>![](/exercises/ex0/images/hana_cloud_running.png) 
+<br>![](/exercises/ex0/images/hana_cloud_running.png)
 
 After having created and started your SAP HANA Cloud Trial instance, continue with the SAP Web IDE trial.
 
@@ -38,6 +38,25 @@ Within your SAP Cloud Platform Trial, you have to subscribe to the SAP Web IDE a
 **Important Note:** While opening the SAP Web IDE there is a message stating that support for the WebIDE will end on November 13th. Please ignore this message.
 
 <br>![](/exercises/ex0/images/webide_discontinued.png)
+
+## Exercise 0.4 - Creating the required users
+
+Throughout this whole exercise we require three SAP HANA users that represent the personas as outlined. In order to have them ready once required, we create them now. We will create the user *HR_SUPERVISOR*, *HR_CALL_CENTER_AGENT* and *DATA_SCIENTIST*
+
+1. Navigate to your SAP HANA Cloud trial tile, and open the SAP HANA Cockpit
+<br>![](/exercises/ex0/images/open_hana_cockpit.png)
+2. As the new browser windows open, you might be asked for database credentials. Please enter the credentials of the *DBADMIN* user including the password set during creating the trial instance.
+3. Navigate to the "Security and User Management" in the database overview.
+<br>![](/exercises/ex0/images/security_user_management.png)
+4. Open "User Management"
+<br>![](/exercises/ex0/images/user_management.png)
+5. In order to create a new user, click the "+" in the Users section and choose "Create User":
+<br>![](/exercises/ex0/images/add_user1.png)
+6. Fill out the form to create a new user, in particular, set the username to *HR_SUPERVISOR*, set a password and **important** do not forget to check "No" for forcing the user to set a new password after the first logon. Please remember the password, we will need that later.
+<br>![](/exercises/ex0/images/add_user2.png)
+7. Once done with the form, click the "Save" button to create the user.
+<br>![](/exercises/ex0/images/add_user3.png)
+8. Please repeat those steps to create the *HR_CALL_CENTER_AGENT* and the *DATA_SCIENTIST* users.
 
 ## Summary
 
