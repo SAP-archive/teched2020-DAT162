@@ -20,7 +20,7 @@ In order to anonymize the data set, there are three methods supported by SAP HAN
 
 If applied properly, situations where individuals can be singled out do not happen: individuals appeared with unique combinations of attributes that reidentified them. The first step to apply k-Anonymity is removing direct identifiers. These are someone’s name or account number and the name. To prevent someone from being re-identified based on unique combinations of attributes you need to generalize such quasi identifier values. These can be age, gender, zip-code, education level, etc.. By configuring a sufficient k value and properly applying the method, it will no longer be possible to easily identify a single person by its uniqueness. Determining the right value of k (and other parameters) for a specific scenario usually involves discussions with your Data Protection and Privacy Officer (DPPO).
 
-## Exercise 3.1 How can data be re-identified?
+## Exercise 3.1 - How can data be re-identified?
 
 In this exercise we will do a re-identification showing that we don't need a name to identify a record from the data set.
 
@@ -52,7 +52,7 @@ HAVING count(*)=1;
 
 In turn, obviously achieving both - preserving the privacy, and allowing data scientists to gain information is not achievable by removing names and identifiers such as the account number. For that we need anonymization methods.
 
-## Exercise 3.2 Applying k-Anonymity
+## Exercise 3.2 - Applying k-Anonymity
 
 In this exercise we will learn how k-Anonymity helps to protect the privacy of individuals when thirds access the data sets. Reconsidering the challenges we have seen in the last exercise, the idea of k-Anonymity is to hide individuals like *Donald* in a crowd. Assume that a query for a specific start year, education, gender, zipcode and T-Level result in a number of rows, one cannot re-link any of those rows to a specific individual. This is what k-Anonymity does, and the minimum result set size of any combination of those attributes is k or larger.
 
@@ -98,7 +98,7 @@ REFRESH VIEW "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesKAnonymity" ANONYMIZATIO
 
 The anonymized view is now ready to use and we will do so in the next part of this exercise.
 
-## Exercise 3.3 Showing the effects of k-Anonymity
+## Exercise 3.3 - Showing the effects of k-Anonymity
 
 After we created the view, we will have a look at the results. 
 
@@ -142,7 +142,7 @@ ORDER BY cnt;
 
 In this exercise we have seen how to apply k-Anonymity and what the effects are. The data is now anonymous and can be used for analytical purposes without risking the privacy of individuals.
 
-## Exercise 3.4 Evaluating a data science task on anonymized data
+## Exercise 3.4 - Evaluating a data science task on anonymized data
 
 This exercise is about using the anonymized data for an actual evaluation task. In order to do so, we create a new role that lets the data scientists access the anonymized view, but not the original data, and then execute the actual analysis on the data.
 
@@ -206,7 +206,7 @@ SELECT "start_year", AVG("salary") FROM "SALARYSQLDEMO"."SalarySQLDemo.db::Salar
 
 <br>![](/exercises/ex3/images/kanon_salary_startyear.png)
 
-## Exercise 3.5 Applying Differential Privacy
+## Exercise 3.5 - Applying Differential Privacy
 
 A different way of anonymizing data in SAP HANA is Differential Privacy. In contrast to k-Anonymity, the goal of Differential Privacy is not to prevent re-identification, but to hide sensitive information by applying random noise. In contrast to Data Masking, Differential Privacy still imposes privacy guarantees. Follow this exercise to learn how to apply Differential Privacy.
 

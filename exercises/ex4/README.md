@@ -13,7 +13,7 @@ In this exercise we will show how a data protection officer can gain information
 
 After having created anonymized views, one last persona in ACME having requirements remains: the data protection and privacy officer (DPPO). The DPPO is responsible for making sure personal data is processed according to regulations, e.g., anonymized in the right way. We have already learned that anonymization can be configured in several different ways, so being the in the shoes of a DPPO a report is benificial to keep track and check anonymizations. Since metadata on anonymization is stored in SAP HANA we can create such reports, and they can be found in the SAP HANA Cockpit.
 
-## Exercise 4.1 Accessing the anonymization reports
+## Exercise 4.1 - Accessing the anonymization reports
 
 For this exercise we need to navigate to the SAP HANA Cockpit and locate the anonymization reports.
 
@@ -37,7 +37,7 @@ For this exercise we need to navigate to the SAP HANA Cockpit and locate the ano
 
 <br>![](/exercises/ex4/images/anon_reports.png)
 
-## Exercise 4.2 Accessing the anonymization reports
+## Exercise 4.2 - Understanding the report
 
 1. We start with the report on the k-Anonymity view, so we click on "SALARYSQLDEMO:SalarySQLDemo.db::SalariesKAnonymity" and the actual report comes up.
 

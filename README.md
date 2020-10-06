@@ -15,7 +15,6 @@ Our example company ACME has, like any other company, a database of its employee
 
 Throughout this exercise we will use this as a running example.
 
-
 ## Requirements
 
 The requirements to follow the exercises in this repository are:
@@ -49,7 +48,7 @@ Instructions on how to start and use such trials are in [Exercise 0](exercises/e
     - [Exercise 3.5 - Applying Differential Privacy](exercises/ex3/README.md#exercise-35-applying-differential-privacy)
 - [Exercise 4 - Data Anonymization Report](exercises/ex4/)
     - [Exercise 4.1 - Accessing the anonymization reports](exercises/ex4#exercise-41-accessing-the-anonymization-reports)
-    - [Exercise 4.2 - Accessing the anonymization reports](exercises/ex4#exercise-42-accessing-the-anonymization-reports)
+    - [Exercise 4.2 - Understanding the report](exercises/ex4#exercise-42-accessing-the-anonymization-reports)
 
 **IMPORTANT**
 

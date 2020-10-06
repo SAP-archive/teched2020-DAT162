@@ -2,7 +2,7 @@
 
 In this exercise, we will set up the Web IDE project, learn how to deploy example data and SQL entities to SAP HANA Cloud and introduce the scenario.
 
-## Exercise 1.1 Setting API Endpoint, Organization and Space
+## Exercise 1.1 - Setting API Endpoint, Organization and Space
 
 First, we need to set up the default API endpoint, Organization and Space, our application will be deployed to.
 
@@ -15,7 +15,7 @@ First, we need to set up the default API endpoint, Organization and Space, our a
 <br>![](/exercises/ex1/images/chosen_api_endpoint_organization_space.png)
 Please save the settings and proceed.
 
-## Exercise 1.2 Uploading the demo application
+## Exercise 1.2 - Uploading the demo application
 
 The demo application contains example data and prerequistes for the following exercises. In this step, we will upload this to the Web IDE.
 
@@ -30,7 +30,7 @@ The demo application contains example data and prerequistes for the following ex
 
 We are now ready to deploy the example application to our SAP HANA Cloud instance.
 
-## Exercise 1.3 Deploying the application to SAP HANA Cloud
+## Exercise 1.3 - Deploying the application to SAP HANA Cloud
 
 In this part of Exercise 1 we will build and deploy the example application to SAP HANA Cloud. Note that those steps will be required in the course of this whole lessons a couple of times and we will refer to it.
 
@@ -124,7 +124,7 @@ SELECT TOP 1000
 FROM "SALARYSQLDEMO"."SalarySQLDemo.db::Salaries"
 WHERE "gender" = 'm';
 ```
-## Exercise 1.5 Understanding the demo scenario
+## Exercise 1.5 - Understanding the demo scenario
 
 In this exercise, we outline the scenario that is valid for the remaining part of this hands-on sesion: 
 

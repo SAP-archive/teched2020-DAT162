@@ -17,7 +17,7 @@ This additional layer of protection allows you to hide data from power DBAs or o
 
 In particular for our scenario, the *HR_SUPERVISOR* should see all the data, while the *HR_CALL_CENTER_AGENT* should not be able to see the full ACCOUNT_NO of an employee, the call center agent should not see the last three digits of it instead. We will create a SQL view that contains the required data masked, create two roles, one for the supervisors (that have to be able to see any data) and one for the call center agents (that only see the masked ACCOUNT_NO).
 
-## Exercise 2.1 Configure and Deploy Data Masking via a SQL View
+## Exercise 2.1 - Configure and Deploy Data Masking via a SQL View
 
 As a very first step we will create the view including the data mask. We will create a file within the SAP Web IDE project that leads to the appropriate view on the SAP HANA cloud instance. Defining the view in the project is recommended, since it will be a portable unit that could be deployed to a different system if required.
 
@@ -41,7 +41,7 @@ WITH MASK ("masked_account_no" USING LEFT("masked_account_no", 3) ||'***');
 
 In the next step we need define roles, that allow the HR_SUPERVISOR as well as the HR_CALL_CENTER_AGENT to see either the masked or "unmasked" view.
 
-## Exercise 2.2 Configure Privileged and Non-Privileged Roles for Access
+## Exercise 2.2 - Configure Privileged and Non-Privileged Roles for Access
 
 After completing this exercise, we will have created two roles, one for the supervisors and one for the call center agents and second we will add the users *HR_SUPERVISOR* and *HR_CALL_CENTER_AGENT* to those roles. We will see the effects of the masking expression in example queries.
 
