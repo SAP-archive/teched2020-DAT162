@@ -148,11 +148,8 @@ The column names make the type of stored information obvious. From a privacy poi
 2. Sensitive values: SALARY is a sensitive value. In an anonymized data set, one should not be able to link its value to a single individual by means of background knowledge.
 3. Quasi-identifiers: all remaining fields are quasi-identifiers. In conjunction (and together with background knowledge), their values may be used to link an entry in the database back to an individual, thus revealing the persons sensitve value or its membership in the database.
 
-
-
 ## Summary
 
-You've now ...
+We have now deployed the basic application and understood the data set. We will now continue on showing the masking feature and how it can help to satisfy the requirements of the HR supervisor and the call center agent.
 
-Continue to - [Exercise 2 - Exercise 2 Description](../ex2/README.md)
-
+Continue to - [Exercise 2 - Data Masking](../ex2/README.md)

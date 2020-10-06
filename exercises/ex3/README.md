@@ -275,3 +275,5 @@ That summarizes the Differential Privacy part of this exercise. You have learned
 ## Summary
 
 We have seen ins this exercise that it is possible to anonymize a data set and still conduct meaningful results. Anonymization can be done with different methods having different impact on privacy and utility. Anonymization can be configured in views that return always the latest data from the original table and do not require any additional maintenance once deployed.
+
+Continue to - [Exercise 4](../ex3/README.md) to start learning how anonymization reports can help the data protection and privacy officer.
