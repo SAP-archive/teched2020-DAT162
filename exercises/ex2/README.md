@@ -4,7 +4,7 @@
 
 This exercise will guide you through masking the account number in a table. We will then configure two users who will have different access rights to the masked data.
 
-## Exercise Description
+## Exercise Overview
 
 - Configure Data Masking to hide parts of the account number
 - Configure appropriate access roles to view masked and cleartext data
@@ -109,6 +109,6 @@ SELECT * FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesMasked";
 
 ## Summary
 
-You've now ...
+In this exercise we have seen how specific parts of information can be hidden from a set of users. One neeed to have a specific role to see the actual data.
 
-Continue to - [Exercise 3 - Excercise 3 ](../ex3/README.md)
+Continue to - [Exercise 3](../ex3/README.md) to start learning why there is an anonymization feature, and how it works.
