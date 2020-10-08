@@ -8,36 +8,105 @@ In particular we require to have trials of **SAP HANA Cloud** and **SAP Web IDE*
 
 In order to create a SAP Cloud Platform Trial Account, you have to conduct the following steps. This trial account is required to start the SAP HANA Cloud and SAP Web IDE trial.
 
-1. Create an account on [sap.com](https://www.sap.com) or login.
+1. Create an account on [sap.com](https://www.sap.com): Navigate to that site, and click on the "person" pictogram in the right upper corner. You have to either create an account or login, in the course of the tutorial we will create a new account..
 <br>![](/exercises/ex0/images/sap_com_account.png)
-2. With your sap.com account, log into the SAP Cloud Platform Trial to start it on https://account.hanatrial.ondemand.com/ and after login and verification, your screen should look like this:
+
+2. Please fill out the form with your details, and click on "Submit".
+
+<br>![](/exercises/ex0/images/register1.png)
+
+3. Please check your mailbox and verify your e-mail address, and click on the
+
+<br>![](/exercises/ex0/images/register2.png)
+
+4. Having verified your account, log into the SAP Cloud Platform Trial to start it on https://account.hanatrial.ondemand.com/ and after login you need to verify your account first. In order to do so, enter you mobile number, and a text message will be sent to your mobile.
+
+<br>![](/exercises/ex0/images/verify1.png)
+
+5. On the next screen enter this code. Your account is now verified.
+
+6. As a next step you might have to choose the region thats close to you, choose one and click on "create account"
+
+<br>![](/exercises/ex0/images/choose_region.png)
+
+7. The actual account setup will take a bit, and your screen will look like this, click on continue once those steps are done:
+
+<br>![](/exercises/ex0/images/account_creation.png)
+
+8. Now your account and verification is ready, your screen should look like this:
+
 <br>![](/exercises/ex0/images/start_sap_cp_trial.png)
 
-This is only a quick description on the steps that have to be done to create an account. More detailed instructions can be found here: https://developers.sap.com/tutorials/hcp-create-trial-account.html.
+Even more detailed instructions can be found here: https://developers.sap.com/tutorials/hcp-create-trial-account.html.
 
 ## Exercise 0.2 - Creating a SAP HANA Cloud Trial Instance
 
 After having your SAP Cloud Platform Trial Account ready, you should proceed creating a HANA Cloud Trial instance. Please make sure you remember the password you will set for the DBADMIN user, since we will need this later. In order to do so, please follow the following steps:
 
-1. Enable the "Entitlements" required to start a SAP HANA Cloud instance. In order to do so, please follow this manual https://saphanajourney.com/hana-cloud/learning-article/starting-a-sap-hana-cloud-trial-when-you-have-an-existing-sap-cloud-platform-trial/
+1. After you logged into your SAP Cloud Platform Trial account, select your "trial" subaccount.
 
-2. Create and start your SAP HANA Cloud Trial Instance as explained in this tutorial: https://saphanajourney.com/hana-cloud/learning-article/how-to-create-your-trial-sap-hana-cloud-instance/ **Note**: For this tutorial we do not require that you allow all external IP addresses to access your SAP HANA Cloud instance. In particular, in step 4, please choose the option as shown here:
+<br>![](/exercises/ex0/images/enter_trial1.png)
+
+2. Select the "dev" Space.
+
+<br>![](/exercises/ex0/images/enter_trial2.png)
+
+3. Click on the menu entry "SAP Hana Cloud"
+
+<br>![](/exercises/ex0/images/enter_trial3.png)
+
+4. Now we create a new instance by clicking on "Create Instance"
+
+<br>![](/exercises/ex0/images/create_instance1.png)
+
+5. Add an instance name and set the DBADMIN Password (please remember this for later). Click on "Step 2" to continue.
+
+<br>![](/exercises/ex0/images/create_instance2.png)
+
+6. We cannot configure the sizing (since this is a trial), so click on "Step 3"
+
+<br>![](/exercises/ex0/images/create_instance3.png)
+
+7. We do not need a data lake for this demo as well, so click on "Step 4"
+
+<br>![](/exercises/ex0/images/create_instance4.png)
+
+8. For this tutorial we do not require that you allow all external IP addresses to access your SAP HANA Cloud instance. In particular, in step 4, please choose the option as shown in the screenshot below.  This is necessary to allow the Web IDE to access your instance during deployment. For a productive setup, you might consider limiting the IP address ranges, but in order to make it simple for this tutorial, we allow all. This setting can also be changed after instance creation, i.e., limits can also be applied afterwards. Once this is set, click on "Create Instance" to start the creation process.
+
 <br>![](/exercises/ex0/images/hana_cloud_set_ip_to_all.png)
- This is necessary to allow the Web IDE to access your instance during deployment. For a productive setup, you might consider limiting the IP address ranges, but in order to make it simple for this tutorial, we allow all. This setting can also be changed after instance creation, i.e., limits can also be applied afterwards.
 
-At the very end, your HANA Cloud instance should be running, as indicated by a green banner:
+8. The system indicates that the instance is being created, and at the end it should be running.
 
 <br>![](/exercises/ex0/images/hana_cloud_running.png)
+
+Addional information can be found here:
+
+- https://saphanajourney.com/hana-cloud/learning-article/starting-a-sap-hana-cloud-trial-when-you-have-an-existing-sap-cloud-platform-trial/
+- https://saphanajourney.com/hana-cloud/learning-article/how-to-create-your-trial-sap-hana-cloud-instance/ 
 
 After having created and started your SAP HANA Cloud Trial instance, continue with the SAP Web IDE trial.
 
 ## Exercise 0.3 - Creating a SAP Web IDE Trial Instance
 
-Within your SAP Cloud Platform Trial, you have to subscribe to the SAP Web IDE as well for doing this hands-on session. Please refer to this guide, on how to do this: https://developers.sap.com/tutorials/webide-multi-cloud.html The very last step is to bookmark the Web IDE which we also recommend, since we will use the Web IDE intensively in the course of this session.
+Within your SAP Cloud Platform Trial, you have to subscribe to the SAP Web IDE as well for doing this hands-on session. 
+
+1. Navigate to your "trial" subaccount by clicking on the subaccount in the topmost bar
+
+<br>![](/exercises/ex0/images/webidesub1.png)
+
+2. Click on Subscriptions in the menu, and choose the SAP Web IDE
+
+<br>![](/exercises/ex0/images/webidesub2.png)
+
+3. A new window opens, click on "Go to application" and bookmark the SAP Web IDE URL, we will need that later.
+
+<br>![](/exercises/ex0/images/webidesub3.png)
 
 **Important Note:** While opening the SAP Web IDE there is a message stating that support for the WebIDE will end on November 13th. Please ignore this message.
 
 <br>![](/exercises/ex0/images/webide_discontinued.png)
+
+More Information can be found here: https://developers.sap.com/tutorials/webide-multi-cloud.
 
 ## Exercise 0.4 - Creating the required users
 
