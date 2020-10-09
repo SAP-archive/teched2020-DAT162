@@ -25,7 +25,7 @@ For this exercise we need to navigate to the SAP HANA Cockpit and locate the ano
 
 3. The SAP HANA cockpit might ask for credentials, use the DBADMIN user you created during the start phase of the trial.
 
-4. Once you logged in, it is important to understand that the SAP HANA Cockpit is organized in "groups" containing different tiles for administration. The "Anonymization Report" will be under "Security and User Management", but this is not necessarily the screen you will have right from the start. In order to have the most general way, we navigate to the "All" Section (containing all the tiles) to find the "Anonymization Report" tile.
+4. Once you are logged in, it is important to understand that the SAP HANA Cockpit is organized in "groups" containing different tiles for administration. The "Anonymization Report" will be under "Security and User Management", but this is not necessarily the screen you will have right from the start. In order to have the most general way, we navigate to the "All" Section (containing all the tiles) to find the "Anonymization Report" tile.
 
 <br>![](/exercises/ex4/images/navigate_to_all.png)
 
@@ -43,13 +43,13 @@ For this exercise we need to navigate to the SAP HANA Cockpit and locate the ano
 
 <br>![](/exercises/ex4/images/choosing_k_anonymous_report.png)
 
-2. The anonymization report itself has three areas, area (1) covering the anonymization method itself, area (2) covering so called "KPIs" and area (3) reflecting the schema and possible quasi identifiers with the respective hierarchies. We will explain more details below the screenshot, please note that behind the most numbers and names, explanations on it can be accessed by clicking on the links, e.g., click on "k-anonymity" to receive an explanation direct in the report.
+2. The anonymization report itself has three areas, area (1) is covering the anonymization method itself, area (2) is covering so called "KPIs" and area (3) is reflecting the schema and possible quasi identifiers with the respective hierarchies. We will explain more details below the screenshot, please note that behind the most numbers and names, explanations on it can be accessed by clicking on the links, e.g., click on "k-anonymity" to receive an explanation direct in the report.
 
 <br>![](/exercises/ex4/images/k_anonymity_report.png)
 
 - *Section 1:* Contains the chosen anonymization method and the parameters, e.g., k for it. In this case we choose k-Anonymity and a k of 8.
 
-- *Section 2:* KPIs are reflecting on the performance in terms of utility of the anonymization method. Note that *privacy* guarantees are kept anyways, KPIs reflect on the actual effects of such guarantees. For example, in the column "Model Risk" there is the "Inverse k" which reflects the chosen k value. The larger those groups are, the less like it is that we link a single record by chance back to an individual, i.e., 1/k. However, groups might be larger than k, since the modifications led to the situation that the smallest group contains more than k individuals. This is reflected in the "Inverse k Effective" which is always smaller or equal than the "Inverse k". More details on the KPIs can be found in the documentation and by clicking on the actual values to open a popup.
+- *Section 2:* KPIs are reflecting on the performance in terms of utility of the anonymization method. Note that *privacy* guarantees are kept anyways, KPIs reflect on the actual effects of such guarantees. For example, in the column "Model Risk" there is the "Inverse k" which reflects the chosen k value. The larger those groups are, the less likely it is that we link a single record by chance back to an individual, i.e., 1/k. However, groups might be larger than k, since the modifications can lead to the situation that the smallest group contains more than k individuals. This is reflected in the "Inverse k Effective" which is always smaller or equal than the "Inverse k". More details on the KPIs can be found in the documentation and by clicking on the actual values to open a popup.
 
 - *Section 3:* This section contains information on the affected columns, in particular the columns marked as quasi-identifying for k-Anonymity. The actual hierarchy can be seen by clicking on the "Yes" in the right most columns. Note that the DPPO cannot see any data but metadata.
 
@@ -61,12 +61,12 @@ For this exercise we need to navigate to the SAP HANA Cockpit and locate the ano
 
 <br>![](/exercises/ex4/images/dp_anon_view.png)
 
-5. The report has obviously different fields an information, e.g., the epsilon is displayed, but has a very similar structure to the report we looked into in detail.
+5. The report has obviously different fields and information, e.g., the epsilon is displayed, but it has a very similar structure to the report we looked into in detail.
 
 <br>![](/exercises/ex4/images/dp_report.png)
 
-6. As a very last step, we want to mention the possibility to actually download a text based representation of this report by clicking in the upper right corner on the "Download" text. This can be used to archive reports and is of course available for each anonymization method.
+6. As a very last step, we would like to mention the possibility to actually download a text based representation of this report by clicking in the upper right corner on the "Download" link. This can be used to archive reports and this is of course available for each anonymization method.
 
 ## Summary
 
-We have seen ins this exercise that it is possible to make the anonymization views transparent to a DPPO. This is important, since the DPPO has to stay informed.
+We have seen in this exercise that it is possible to make the anonymization views transparent to a DPPO. This is important, since the DPPO has to stay informed.

@@ -30,7 +30,7 @@ In this exercise we will do a re-identification showing that we don't need a nam
 2. Assume that we do know a male colleague, that started in 1993, lives in the area of ZIP code 7203, did a Bachelor and is currently in the T-Level T5. Based on this information, we execute the following query:
 
 ```sql
-SELECT * FROM  "SalarySQLDemo.db::tables.Salaries" 
+SELECT * FROM  "SalarySQLDemo.db::Salaries"
 WHERE "start_year" = 1993 and "gender" = 'm' and "zipcode"= 7203 and "education" = 'Bachelor' and "T-Level" = 'T5';
 ```
 
@@ -106,7 +106,7 @@ After we created the view, we will have a look at the results.
 
 <br>![](/exercises/ex3/images/open_sql_console.png)
 
-2. We first try got get an idea how the data looks like now, so we execute the following SQL statement.
+2. We first try to get an idea how the data looks like now, so we execute the following SQL statement.
 
 ```sql
 SELECT * FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesKAnonymity";
@@ -116,12 +116,11 @@ SELECT * FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesKAnonymity";
 
 <br>![](/exercises/ex3/images/select_results.png)
 
-4. As a second exercise we check if at least *k* persons are indistinguishable. With the following query, we search for rows with a unique combination of start_year, gender, region, zipcode, T-Level and education. Execute the following query in the SQL console:
+4. As a second exercise we check if at least *k* persons are indistinguishable. With the following query, we search for rows with a combination of start_year, gender, region, zipcode, T-Level and education of less than eight rows. Execute the following query in the SQL console:
 
 ```sql
-SELECT "start_year", "gender", "region", "zipcode", "T-Level", "education", count(*), MAX("salary") FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesKAnonymity" 
-GROUP BY "start_year","gender","region","zipcode","T-Level","education" 
-HAVING count(*)=1;
+SELECT "start_year", "gender", "region", "zipcode", "T-Level", "education", count(*), MAX("salary") FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesKAnonymity"
+GROUP BY "start_year","gender","region","zipcode","T-Level","education" HAVING count(*)<8;
 ```
 
 5. The result of this query, is an empty result set, which we expect, since at least *k* rows should be indistinguishable.
@@ -136,7 +135,7 @@ GROUP BY "start_year","gender","region","zipcode","T-Level","education"
 ORDER BY cnt;
 ```
 
-7. The results look as expected, more than 8 persons are in each group.
+7. The results look as expected, at least 8 persons are in each group.
 
 <br>![](/exercises/ex3/images/indistinguishable_persons.png)
 
@@ -154,7 +153,7 @@ This exercise is about using the anonymized data for an actual evaluation task. 
 
 <br>![](/exercises/ex3/images/create_new_file_role_name.png)
 
-3. Configure the role: name it SalarySQLDemo.db::DataScientistRole and add the SELECT privilege for the object SalarySQLDemo.db::SalariesKAnonymity. Noe that you have to choose "Object Privileges" in the menu, to add an privilege to the view.
+3. Configure the role: name it SalarySQLDemo.db::DataScientistRole and add the SELECT privilege for the object SalarySQLDemo.db::SalariesKAnonymity. Note that you have to choose "Object Privileges" in the menu, to add a privilege to the view.
 
 <br>![](/exercises/ex3/images/ds_role_editor.png)
 
@@ -199,7 +198,7 @@ SELECT * FROM "SALARYSQLDEMO"."SalarySQLDemo.db::Salaries";
 11. So the privileges are configured correctly, and we can start querying for our analytical purpose in answering the question if being longer at ACME improves the salary in average. The following query reflects this information need, execute that in a SQL Console.
 
 ```sql
-SELECT "start_year", AVG("salary") FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesKAnonymity" GROUP BY "start_year" ORDER BY "start_year";
+SELECT "start_year", ROUND(AVG("salary"),2) FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesKAnonymity" GROUP BY "start_year" ORDER BY "start_year";
 ```
 
 12. The results show clearly that the longer you are at ACME the higher the average salary is. Due to the k-Anonymization we see only five year ranges of start years and not the exact start year, however the average salary of that cohort is precise.
@@ -241,7 +240,7 @@ COLUMN "salary" PARAMETERS '{"is_sensitive":true, "epsilon" : 0.5, "sensitivity"
 
 <br>![](/exercises/ex3/images/open_sql_console.png)
 
-8. As the next step we need to REFRESh the Differential Privacy view to initialize it. Do this by executing the following query in the SQL console:
+8. As the next step we need to REFRESH the Differential Privacy view to initialize it. Do this by executing the following query in the SQL console:
 
 ```sql
 REFRESH VIEW "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesDifferentialPrivacy" ANONYMIZATION
@@ -256,24 +255,24 @@ CONNECT DATA_SCIENTIST PASSWORD passwordhere;
 10. We can now query the SalariesDifferentialPrivacy view, to see the effects of differential privacy, by executing:
 
 ```sql
-SELECT *  FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesDifferentialPrivacy";
+SELECT * FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesDifferentialPrivacy";
 ```
 <br>![](/exercises/ex3/images/results_differential_privacy.png)
 
 11. You will notice that the salaries are far off the original values, in particular there are also some negative values in the dataset. This is the effect of Differential Privacy. Each row alone does not make sense any more with respect to the salary. However, aggregating data still results in meaningful values. In order to see that, we execute the same analytical query as for the k-Anonymous view on the Differential Private one as well:
 
 ```sql
-SELECT "start_year", AVG("salary") FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesDifferentialPrivacy" GROUP BY "start_year" ORDER BY "start_year";
+SELECT "start_year", ROUND(AVG("salary"),2) FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesDifferentialPrivacy" GROUP BY "start_year" ORDER BY "start_year";
 ```
 
 <br>![](/exercises/ex3/images/avg_startyear_dp.png)
 
-12. The results show the same trends as we expected them and seen in the k-Anonymous results. Even though any salary value was changed by far, the average over the whole data set still returns meaningful results. This time, we get the exact start year, but the average salary will be a bit off the original value.
+12. The result shows the trend as expected and the trend is equal to the k-Anonymous result. Even though any salary value was changed by far, the average over the whole data set still returns meaningful results. This time, we get the exact start year, but the average salary will be a bit off the original value.
 
 That summarizes the Differential Privacy part of this exercise. You have learned how to deploy a differential private view.
 
 ## Summary
 
-We have seen ins this exercise that it is possible to anonymize a data set and still conduct meaningful results. Anonymization can be done with different methods having different impact on privacy and utility. Anonymization can be configured in views that return always the latest data from the original table and do not require any additional maintenance once deployed.
+We have seen in this exercise that it is possible to anonymize a data set and still conduct meaningful results. Anonymization can be done with different methods having different impact on privacy and utility. Anonymization can be configured in views that return always the latest data from the original table and do not require any additional maintenance once deployed.
 
-Continue to - [Exercise 4](../ex3/README.md) to start learning how anonymization reports can help the data protection and privacy officer.
+Continue to - [Exercise 4](../ex4/README.md) to start learning how anonymization reports can help the data protection and privacy officer.

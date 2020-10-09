@@ -51,24 +51,28 @@ After completing this exercise, we will have created two roles, one for the supe
 2. We name the first file "hr_supervisor_role.hdbrole" and press "OK". This will open the role editor in the WebIDE.
 <br>![](/exercises/ex2/images/new_file_role_name.png)
 
-3. We first need to edit the name. Note that entity names always have to have the prefix "SalarySQLDemo.db::" in order to belong to the correct namespace. So the result looks like this:
+3. **Important Note**: If the editor tells you after creating the file, the following message, please do the following to fix that: Edit the file with the editor as provided in Step (4), save this file, close the editor and re-open it. You might have to enter the role name again, and save it.
+
+<br>![](/exercises/ex2/images/error_role_file.png)
+
+4. We first need to edit the name. Note that entity names always have to have the prefix "SalarySQLDemo.db::" in order to belong to the correct namespace. In total you need to enter "SalarySQLDemo.db::HRSupervisorRole". **Note** if the error as described in Step (3) appears, please follow the instruction. So the result looks like this:
 <br>![](/exercises/ex2/images/hr_supervisor_role_name.png)
 
-4. In the center area of the screen we choose "Object Privileges" to define a role for an object (click on "+" to add a new privilege), choose the "SalarySQLDemo.db::SalariesMasked" object and add the "SELECT" as well as the "UNMASKED" privilege. 
+5. In the center area of the screen we choose "Object Privileges" to define a role for an object (click on "+" to add a new privilege), choose the "SalarySQLDemo.db::SalariesMasked" object and add the "SELECT" as well as the "UNMASKED" privilege. 
 <br>![](/exercises/ex2/images/design_role_hr_supervisor.png)
 
-5. Save that file, either by pressing CTRL-S or by clicking the "Save" button.
+6. Save that file, either by pressing CTRL-S or by clicking the "Save" button.
 <br>![](/exercises/ex2/images/save_button.png)
 
-6. As a second role, we create a new file called "hr_call_center_agent_role.hdbrole" and configure it to only be able to select on the "SalariesMasked" view. We set the name to "SalarySQLDemo.db::HRCallCenterAgentRole". The configuration should look like this:
+7. As a second role, we create a new file called "hr_call_center_agent_role.hdbrole" and configure it to only be able to select on the "SalariesMasked" view. We set the name to "SalarySQLDemo.db::HRCallCenterAgentRole". The configuration should look like this:
 <br>![](/exercises/ex2/images/call_center_agent_role.png)
 
-7. Save this role as well, build and deploy the project.
+8. Save this role as well, build and deploy the project.
 
-8. As a next step we need to assign the users we created in [Exercise 0](/exercises/ex0). In order to do so, we have to execute SQL commands in an *Admin* Console. Navigate to the Database Explorer, right click on the HDI container and choose "Open SQL Console (Admin)".
+9. As a next step we need to assign the users we created in [Exercise 0](/exercises/ex0). In order to do so, we have to execute SQL commands in an *Admin* Console. Navigate to the Database Explorer, right click on the HDI container and choose "Open SQL Console (Admin)".
 <br>![](/exercises/ex2/images/open_admin_sql_console.png)
 
-9. In this console, we have to execute the following SQL Statements **one-by-one** in order to add the HR_SUPERVISOR user to the appropriate role. In a nutshell, three things are done here. First, a temporary table containing user and role information is created (line 1 and 2). Second, we call a SQL function that finally assigns the user to the role chosen (line 3) and drops the temporary table again (line 4).
+10. In this console, we have to execute the following SQL Statements **one-by-one** in order to add the HR_SUPERVISOR user to the appropriate role. In a nutshell, three things are done here. First, a temporary table containing user and role information is created (line 1 and 2). Second, we call a SQL function that finally assigns the user to the role chosen (line 3) and drops the temporary table again (line 4).
 
 ```sql
 CREATE LOCAL TEMPORARY COLUMN TABLE SALARYSQLDEMO#DI.#ROLES LIKE _SYS_DI.TT_SCHEMA_ROLES;
@@ -77,7 +81,7 @@ CALL SALARYSQLDEMO#DI.GRANT_CONTAINER_SCHEMA_ROLES( SALARYSQLDEMO#DI.#ROLES, _SY
 DROP TABLE SALARYSQLDEMO#DI.#ROLES;
 ```
 
-10. To assign the HR_CALL_CENTER_AGENT to the appropriate role, we execute the following:
+11. To assign the HR_CALL_CENTER_AGENT to the appropriate role, we execute the following:
 
 ```sql
 CREATE LOCAL TEMPORARY COLUMN TABLE SALARYSQLDEMO#DI.#ROLES LIKE _SYS_DI.TT_SCHEMA_ROLES;
@@ -86,21 +90,21 @@ CALL SALARYSQLDEMO#DI.GRANT_CONTAINER_SCHEMA_ROLES( SALARYSQLDEMO#DI.#ROLES, _SY
 DROP TABLE SALARYSQLDEMO#DI.#ROLES;
 ```
 
-11. So both users are set now, and we can try it out. For that we have to create a new SQL console without the admin functionality. Right click on the HDI container and choose "Open SQL Console". .
+12. So both users are set now, and we can try it out. For that we have to create a new SQL console without the admin functionality. Right click on the HDI container and choose "Open SQL Console". .
 <br>![](/exercises/ex2/images/open_sql_console.png)
 
-12. In this new console, we have to switch users, e.g. to the HR_SUPERVISOR, this is possible with the following SQL command:
+13. In this new console, we have to switch users, e.g. to the HR_SUPERVISOR, this is possible with the following SQL command:
 
 ```sql
 CONNECT HR_SUPERVISOR PASSWORD putyourpasswordhere;
 ```
-13. Querying now the SalariesMasked view with the HR_SUPERVISOR as a current user, returns in the full account number:
+14. Querying now the SalariesMasked view with the HR_SUPERVISOR as a current user, returns in the full account number:
 ```sql
 SELECT * FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesMasked";
 ```
 <br>![](/exercises/ex2/images/salaries_unmasked.png)
 
-14. Being the call center agent, does not reveal the complete ACCOUNT_NO.
+15. Being the call center agent, does not reveal the complete ACCOUNT_NO.
 ```sql
 CONNECT HR_CALL_CENTER_AGENT PASSWORD putyourpasswordhere;
 SELECT * FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesMasked";
