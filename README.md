@@ -50,9 +50,25 @@ Instructions on how to start and use such trials are in [Exercise 0](exercises/e
     - [Exercise 4.1 - Accessing the anonymization reports](exercises/ex4#exercise-41-accessing-the-anonymization-reports)
     - [Exercise 4.2 - Understanding the report](exercises/ex4#exercise-42-accessing-the-anonymization-reports)
 
-**IMPORTANT**
+## Learn more
 
-Your repo must contain the .reuse and LICENSES folder and the License section below. DO NOT REMOVE the section or folders/files. Also, remove all unused template assets(images, folders, etc) from the exercises folder. 
+This exercise provides an overview about SAP HANA data masking and SAP HANA data anonymization. If you want to learn more, we provide references containing further information:
+
+- *Discover*
+    - [SAP HANA Security Website](https://www.sap.com/products/hana/features/security.html)
+    - [SAP HANA data anonymization Website](https://www.sap.com/data-anonymization)
+    - [Whitepaper](https://www.sap.com/documents/2016/06/3ea239ad-757c-0010-82c7-eda71af511fa.html)
+- *Watch*
+    - [SAP HANA Academy Videos](https://www.youtube.com/watch?v=_iNJJw7AnrY)
+    - [Expert Chat](https://www.youtube.com/watch?v=rePev1MfFdw)
+- *Read*
+    - [Privacy Protected Data Has Value Too!](https://blogs.sap.com/2019/07/10/privacy-protected-data-has-value-too-part-1-of-2/)
+    - [Anonymize X+O Data](https://blogs.sap.com/2019/04/02/get-the-most-out-of-experiential-x-and-operational-o-data-with-sap-hana-real-time-data-anonymization/)
+- *Dive*
+    - [SAP Help: Anonymization Guide](https://help.sap.com/viewer/2f789e82e97d4f4e9416547abfbd012e/2020_03_QRC/en-US)
+    - [Research paper (VLDB)](https://www.vldb.org/pvldb/vol12/p1998-kessler.pdf)
+    - [SAP HANA Cloud Online Roadmap](https://roadmaps.sap.com/index.html#/board?categoryItems=73554900100800002881)
+    - [SAP HANA Online Roadmap](https://roadmaps.sap.com/index.html#/board?categoryItems=01200314690800001945)
 
 ## How to obtain support
 
