@@ -84,31 +84,9 @@ Addional information can be found here:
 - https://saphanajourney.com/hana-cloud/learning-article/starting-a-sap-hana-cloud-trial-when-you-have-an-existing-sap-cloud-platform-trial/
 - https://saphanajourney.com/hana-cloud/learning-article/how-to-create-your-trial-sap-hana-cloud-instance/ 
 
-After having created and started your SAP HANA Cloud Trial instance, continue with the SAP Web IDE trial.
+After having created and started your SAP HANA Cloud Trial instance, continue with the User Creation.
 
-## Exercise 0.3 - Creating a SAP Web IDE Trial Instance
-
-Within your SAP Cloud Platform Trial, you have to subscribe to the SAP Web IDE as well for doing this hands-on session. 
-
-1. Navigate to your "trial" subaccount by clicking on the subaccount in the topmost bar
-
-<br>![](/exercises/ex0/images/webidesub1.png)
-
-2. Click on Subscriptions in the menu, and choose the SAP Web IDE
-
-<br>![](/exercises/ex0/images/webidesub2.png)
-
-3. A new window opens, click on "Go to application" and bookmark the SAP Web IDE URL, we will need that later.
-
-<br>![](/exercises/ex0/images/webidesub3.png)
-
-**Important Note:** While opening the SAP Web IDE there is a message stating that support for the WebIDE will end on November 13th. Please ignore this message.
-
-<br>![](/exercises/ex0/images/webide_discontinued.png)
-
-More Information can be found here: https://developers.sap.com/tutorials/webide-multi-cloud.
-
-## Exercise 0.4 - Creating the required users
+## Exercise 0.2 - Creating the required users
 
 Throughout this whole exercise we require three SAP HANA users that represent the personas as outlined. In order to have them ready once required, we create them now. We will create the user *HR_SUPERVISOR*, *HR_CALL_CENTER_AGENT* and *DATA_SCIENTIST*
 
@@ -126,6 +104,35 @@ Throughout this whole exercise we require three SAP HANA users that represent th
 7. Once done with the form, click the "Save" button to create the user.
 <br>![](/exercises/ex0/images/add_user3.png)
 8. Please repeat those steps to create the *HR_CALL_CENTER_AGENT* and the *DATA_SCIENTIST* users.
+
+As a last step, we continue with the SAP Web IDE trial.
+
+## Exercise 0.4 - Creating a SAP Web IDE Trial Instance
+
+Within your SAP Cloud Platform Trial, you have to subscribe to the SAP Web IDE as well for doing this hands-on session. 
+
+1. Navigate to your "trial" subaccount by clicking on the subaccount in the topmost bar
+
+<br>![](/exercises/ex0/images/webidesub1.png)
+
+2. Click on Subscriptions in the menu, and choose the SAP Web IDE
+
+<br>![](/exercises/ex0/images/webidesub2.png)
+
+3. A new window opens, click on the blue "Subscribe" Button to subscribe to the Web IDE, the status will change to a green "Subscribed".
+
+<br>![](/exercises/ex0/images/subscribe_webide.png)
+
+
+4. Click on "Go to application" and bookmark the SAP Web IDE URL, we will need that later.
+
+<br>![](/exercises/ex0/images/webidesub3.png)
+
+**Important Note:** While opening the SAP Web IDE there is a message stating that support for the WebIDE will end on November 13th. Please ignore this message.
+
+<br>![](/exercises/ex0/images/webide_discontinued.png)
+
+More Information can be found here: https://developers.sap.com/tutorials/webide-multi-cloud.
 
 ## Summary
 

@@ -7,20 +7,22 @@ In this exercise, we will set up the Web IDE project, learn how to deploy exampl
 First, we need to set up the default API endpoint, Organization and Space, our application will be deployed to.
 
 1. Log into your SAP Web IDE instance.
-2. First, we need to configure the default Cloud Foundry endpoints. In order to do so, please navigate to the "Prefrences" Section on the left side of your screen (1) and select the "Cloud Foundry" entry in the "Workspace Preferences" (2) part. At (3) you can configure your API Endpoint, Organization and Space.
+2. First, we need to configure the default Cloud Foundry endpoints. In order to do so, please navigate to the "Preferences" Section on the left side of your screen (1) and select the "Cloud Foundry" entry in the "Workspace Preferences" (2) part. At (3) you can configure your API Endpoint, Organization and Space.
 <br>![](/exercises/ex1/images/set_cf_api_endpoint.png)
-3. Please choose an appropriate API Endpoint, e.g., if you are in Europe, you should choose https://api.cf.eu10.hana.ondemand.com. Once you selected one of those, you are asked for an E-mail and a Password. Please enter the credentials of your account you created in [Exercise 0](../ex0/README.md).
+3. Please choose an appropriate API Endpoint. This is the same endpoint as your trial account itself, e.g., if you are in Europe, you should choose https://api.cf.eu10.hana.ondemand.com. Once you selected one of those, you are asked for an E-mail and a Password. Please enter the credentials of your account you created in [Exercise 0](../ex0/README.md).
 <br>![](/exercises/ex1/images/login_organization_space.png)
-4. Please select the Organization and the Space as well. For a trial account the "Space" is always "dev" and the organization suffix is always "trial", it look similar like this:
+4. Please select the Organization and the Space as well. For a trial account the "Space" is always "dev" and the organization suffix is always "trial", it look similar like the following screenshot. Please save the settings and proceed.
 <br>![](/exercises/ex1/images/chosen_api_endpoint_organization_space.png)
-Please save the settings and proceed.
+
 
 ## Exercise 1.2 - Uploading the demo application
 
 The demo application contains example data and prerequistes for the following exercises. In this step, we will upload this to the Web IDE.
 
-1. Log into your SAP Web IDE instance.
-2. Download the [SalarySQLDemo.zip](/exercises/ex1/downloads/SalarySQLDemo.zip) from this github repository.
+1. Navigate back using the "Home" Button, or log into your SAP Web IDE instance again if you looged out.
+<br>![](/exercises/ex1/images/navigate_home.png)
+2. Download the [SalarySQLDemo.zip](/exercises/ex1/downloads/SalarySQLDemo.zip) from this github repository. Click the link, and use the "Download" button, to get the actual file.
+<br>![](/exercises/ex1/images/download_github.png)
 3. Click on the "File" menu, choose "Import" -> "File or Project":
 <br>![](/exercises/ex1/images/import_file_project.png)
 4. Choose the downloaded [SalarySQLDemo.zip](/exercises/ex1/downloads/SalarySQLDemo.zip) from your disk:

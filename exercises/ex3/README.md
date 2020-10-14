@@ -228,7 +228,7 @@ COLUMN "id" PARAMETERS '{"is_sequence":true}'
 COLUMN "salary" PARAMETERS '{"is_sensitive":true, "epsilon" : 0.5, "sensitivity": 100000}');
 ```
 
-4. Build the project and deploy it.
+4. Build the project.
 
 5. Before we query the results, we need to modify the Data Scientist role, to add a SELECT privilege for the newly created view. Open the "data_scientist_role.hdbrole" and add a second object privilege as select for the Differential Privacy view. Open the "data_scientist_role.hdbrole" file and add a second Object Privilege (click the "+") assigning SELECT privileges for the SalarySQLDemo.db::SalariesDifferentialPrivacy object.
 

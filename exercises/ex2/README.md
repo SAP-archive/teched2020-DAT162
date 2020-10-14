@@ -72,7 +72,7 @@ After completing this exercise, we will have created two roles, one for the supe
 9. As a next step we need to assign the users we created in [Exercise 0](/exercises/ex0). In order to do so, we have to execute SQL commands in an *Admin* Console. Navigate to the Database Explorer, right click on the HDI container and choose "Open SQL Console (Admin)".
 <br>![](/exercises/ex2/images/open_admin_sql_console.png)
 
-10. In this console, we have to execute the following SQL Statements **one-by-one** in order to add the HR_SUPERVISOR user to the appropriate role. In a nutshell, three things are done here. First, a temporary table containing user and role information is created (line 1 and 2). Second, we call a SQL function that finally assigns the user to the role chosen (line 3) and drops the temporary table again (line 4).
+10. In this console, we have to execute the following SQL Statements **one-by-one** in order to add the HR_SUPERVISOR user to the appropriate role. In a nutshell, three things are done here. First, a temporary table containing user and role information is created (line 1 and 2). Second, we call a SQL function that finally assigns the user to the role chosen (line 3) and third, drops the temporary table again (line 4).
 
 ```sql
 CREATE LOCAL TEMPORARY COLUMN TABLE SALARYSQLDEMO#DI.#ROLES LIKE _SYS_DI.TT_SCHEMA_ROLES;
@@ -81,7 +81,11 @@ CALL SALARYSQLDEMO#DI.GRANT_CONTAINER_SCHEMA_ROLES( SALARYSQLDEMO#DI.#ROLES, _SY
 DROP TABLE SALARYSQLDEMO#DI.#ROLES;
 ```
 
-11. To assign the HR_CALL_CENTER_AGENT to the appropriate role, we execute the following:
+11. The "CALL" statement should return messages similar to the following screenshot, please make sure that the granting message contains "ok" and no error.
+
+<br>![](/exercises/ex2/images/grant_success.png)
+
+12. To assign the HR_CALL_CENTER_AGENT to the appropriate role, we execute the following:
 
 ```sql
 CREATE LOCAL TEMPORARY COLUMN TABLE SALARYSQLDEMO#DI.#ROLES LIKE _SYS_DI.TT_SCHEMA_ROLES;
@@ -90,21 +94,21 @@ CALL SALARYSQLDEMO#DI.GRANT_CONTAINER_SCHEMA_ROLES( SALARYSQLDEMO#DI.#ROLES, _SY
 DROP TABLE SALARYSQLDEMO#DI.#ROLES;
 ```
 
-12. So both users are set now, and we can try it out. For that we have to create a new SQL console without the admin functionality. Right click on the HDI container and choose "Open SQL Console". .
+13. So both users are set now, and we can try it out. For that we have to create a new SQL console without the admin functionality. Right click on the HDI container and choose "Open SQL Console". .
 <br>![](/exercises/ex2/images/open_sql_console.png)
 
-13. In this new console, we have to switch users, e.g. to the HR_SUPERVISOR, this is possible with the following SQL command:
+14. In this new console, we have to switch users, e.g. to the HR_SUPERVISOR, this is possible with the following SQL command:
 
 ```sql
-CONNECT HR_SUPERVISOR PASSWORD putyourpasswordhere;
+CONNECT HR_SUPERVISOR PASSWORD "putyourpasswordhere";
 ```
-14. Querying now the SalariesMasked view with the HR_SUPERVISOR as a current user, returns in the full account number:
+15. Querying now the SalariesMasked view with the HR_SUPERVISOR as a current user, returns in the full account number:
 ```sql
 SELECT * FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesMasked";
 ```
 <br>![](/exercises/ex2/images/salaries_unmasked.png)
 
-15. Being the call center agent, does not reveal the complete ACCOUNT_NO.
+16. Being the call center agent, does not reveal the complete ACCOUNT_NO.
 ```sql
 CONNECT HR_CALL_CENTER_AGENT PASSWORD putyourpasswordhere;
 SELECT * FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesMasked";

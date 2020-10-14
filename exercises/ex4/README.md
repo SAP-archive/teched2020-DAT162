@@ -15,7 +15,7 @@ After having created anonymized views, one last persona in ACME having requireme
 
 ## Exercise 4.1 - Accessing the anonymization reports
 
-For this exercise we need to navigate to the SAP HANA Cockpit and locate the anonymization reports.
+For this exercise we need to navigate to the SAP HANA Cockpit and locate the anonymization reports. **Note:** if you have the SAP HANA Cockpit still open from Exercise 0, you can skip step 1-3.
 
 1. Navigate to https://account.hanatrial.ondemand.com and enter your trial account
 <br>![](/exercises/ex4/images/account_hanatrial.png)
@@ -33,7 +33,7 @@ For this exercise we need to navigate to the SAP HANA Cockpit and locate the ano
 
 <br>![](/exercises/ex4/images/find_anon_report_tile.png)
 
-6. We created two different anonymized views, and both show up in the list. This is the place where a DBADMIN or a data protection officer with a different account can see all the anonymized views. In the next exercise we will go into details of those reports
+6. We created two different anonymized views, and both show up in the list. This is the place where a DBADMIN or a data protection officer with a different account can see all the anonymized views. In the next exercise we will go into details of those reports. Note that there will be multiple reports, some with the Status READY and some only with the Status CREATED. The "ready" ones are the interesting ones, the others just artifacts from the build process and cannot be used by a data consumer.
 
 <br>![](/exercises/ex4/images/anon_reports.png)
 
