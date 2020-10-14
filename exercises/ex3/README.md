@@ -96,6 +96,50 @@ REFRESH VIEW "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesKAnonymity" ANONYMIZATIO
 
 <br>![](/exercises/ex3/images/refresh_view.png)
 
+8. **Note:** The following steps in Exercise 3.2 are optional and show how to improve the hierarchy design. If you want to continue with the normal exercise, go to [Exercise 3.4](/exercises/ex3/README.md#exercise-33-showing-the-effects-of-k-anonymity). Motivation of this additional part is, that defining embedded hierarchies is a rather cumbersome process for columns with many different values. We will create a SQL Script funtion for the ZIP Code Hierarchy, that simplifies the process. Switch back to the development perspective and add a new file in the db/src folder.
+
+<br>![](/exercises/ex3/images/create_new_file_function.png)
+
+9. Name this file "hierarchyfunction.hdbfunction"
+
+<br>![](/exercises/ex3/images/file_hierarchyfunction.png)
+
+10. Insert the following code into the new file and save. This function reduces the number of digits in Zip Codes, and replaces the missing numbers with "*".
+
+```sql
+FUNCTION "SalarySQLDemo.db::HIERARCHYFUNCTION"(value nvarchar(255), level integer)
+RETURNS outValue nvarchar(255) AS
+BEGIN
+  DECLARE charsToShow integer default 0;
+    charsToShow := length(value) - level;
+    outValue := lpad(substring(value, 1+level), charsToShow+level,'*');
+END;
+```
+
+11. Next, open the "salaries_kanonymity.hdbview" file and insert the following SQL like statement and save the file. Note that for the column "zipcode" the newly created function is referenced. This makes the definition far more versatile.
+
+```sql
+VIEW "SalarySQLDemo.db::SalariesKAnonymity" ("id", "start_year", "gender", "region", "zipcode", "T-Level", "education", "salary") AS
+SELECT "id", "start_year", "gender", "region", "zipcode", "T-Level", "education", "salary"
+FROM "SalarySQLDemo.db::Salaries"
+WITH ANONYMIZATION (ALGORITHM 'K-ANONYMITY' PARAMETERS '{"k": 8}'
+COLUMN "id" PARAMETERS '{"is_sequence":true}'
+COLUMN "gender" PARAMETERS '{"is_quasi_identifier":true,"hierarchy":{"embedded":[["f"],["m"]]}}'
+COLUMN "region" PARAMETERS '{"is_quasi_identifier":true,"hierarchy":{"embedded":[["APJ"],["EMEA"],["NA"]]}}'
+COLUMN "T-Level" PARAMETERS '{"is_quasi_identifier":true,"hierarchy":{"embedded":[["T1","T1-T2"],["T2","T1-T2"],["T3","T3-T5"],["T4","T3-T5"],["T5","T3-T5"]]}}'
+COLUMN "education" PARAMETERS '{"is_quasi_identifier":true,"hierarchy":{"embedded":[["9th-12th","High School","Secondary Ed"],["Assoc-acdm","Professional Ed","Higher Ed"],["Assoc-voc","Professional Ed","Higher Ed"],["Bachelor","Undergraduate","Higher Ed"],["College","Undergraduate","Higher Ed"],["Doctorate","Graduate","Higher Ed"],["HS-grad","High School","Secondary Ed"],["Master","Graduate","Higher Ed"],["Prof-school","Professional Ed","Higher Ed"]]}}'
+COLUMN "zipcode" PARAMETERS '{"is_quasi_identifier":true, "min": 1, "hierarchy":{"function":"SalarySQLDemo.db::HIERARCHYFUNCTION", "levels": 3}}'
+COLUMN "start_year" PARAMETERS '{"is_quasi_identifier":true,"hierarchy":{"embedded":[["1987","1986-1990","1986-1995"],["1988","1986-1990","1986-1995"],["1989","1986-1990","1986-1995"],["1990","1986-1990","1986-1995"],["1991","1991-1995","1986-1995"],["1992","1991-1995","1986-1995"],["1993","1991-1995","1986-1995"],["1994","1991-1995","1986-1995"],["1995","1991-1995","1986-1995"],["1996","1996-2000","1996-2005"],["1997","1996-2000","1996-2005"],["1998","1996-2000","1996-2005"],["1999","1996-2000","1996-2005"],["2000","1996-2000","1996-2005"],["2001","2001-2005","1996-2005"],["2002","2001-2005","1996-2005"],["2003","2001-2005","1996-2005"],["2004","2001-2005","1996-2005"],["2005","2001-2005","1996-2005"],["2006","2006-2010",">2006"],["2007","2006-2010",">2006"],["2008","2006-2010",">2006"],["2009","2006-2010",">2006"],["2010","2006-2010",">2006"],["2011","2011-2015",">2006"],["2012","2011-2015",">2006"],["2013","2011-2015",">2006"],["2014","2011-2015",">2006"],["2015","2011-2015",">2006"],["2016","2016-2020",">2006"],["2017","2016-2020",">2006"]]}}');
+```
+
+12. Build and deploy the project.
+
+13. We need to refresh the view again, repeat steps 5-7 in this exercise, i.e., execute the REFRESH statement in the database explorer.
+
+```sql
+REFRESH VIEW "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesKAnonymity" ANONYMIZATION;
+```
+
 The anonymized view is now ready to use and we will do so in the next part of this exercise.
 
 ## Exercise 3.3 - Showing the effects of k-Anonymity
