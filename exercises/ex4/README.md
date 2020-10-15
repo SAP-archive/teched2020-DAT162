@@ -7,11 +7,11 @@ In this exercise we will show how a data protection officer can gain information
 ## Exercise Overview
 
 - Access the SAP HANA Cockpit
-- Learn how to access the Anonymization repots
+- Learn how to access the anonymization reports
 
 ## Background
 
-After having created anonymized views, one last persona in ACME having requirements remains: the data protection and privacy officer (DPPO). The DPPO is responsible for making sure personal data is processed according to regulations, e.g., anonymized in the right way. We have already learned that anonymization can be configured in several different ways, so being the in the shoes of a DPPO a report is benificial to keep track and check anonymizations. Since metadata on anonymization is stored in SAP HANA we can create such reports, and they can be found in the SAP HANA Cockpit.
+After having created anonymized views, one last persona in ACME having requirements remains: the data protection and privacy officer (DPPO). The DPPO is responsible for making sure personal data is processed according to regulations, e.g., anonymized in the right way. We have already learned that anonymization can be configured in several different ways, so being the in the shoes of a DPPO a report is beneficial to keep track and check anonymization occurences. Since metadata on anonymization is stored in SAP HANA, we can create such reports, and they can be found in the SAP HANA Cockpit.
 
 ## Exercise 4.1 - Accessing the anonymization reports
 
@@ -43,13 +43,13 @@ For this exercise we need to navigate to the SAP HANA Cockpit and locate the ano
 
 <br>![](/exercises/ex4/images/choosing_k_anonymous_report.png)
 
-2. The anonymization report itself has three areas, area (1) is covering the anonymization method itself, area (2) is covering so called "KPIs" and area (3) is reflecting the schema and possible quasi identifiers with the respective hierarchies. We will explain more details below the screenshot, please note that behind the most numbers and names, explanations on it can be accessed by clicking on the links, e.g., click on "k-anonymity" to receive an explanation direct in the report.
+2. The anonymization report itself has three areas, area (1) is covering the anonymization method itself, area (2) is covering so called "KPIs" and area (3) is reflecting the schema and possible quasi identifiers with the respective hierarchies. We will explain in more detail below the screenshot, please note that behind the most numbers and names, explanations on it can be accessed by clicking on the links, e.g., click on "k-anonymity" to receive an explanation directly in the report.
 
 <br>![](/exercises/ex4/images/k_anonymity_report.png)
 
 - *Section 1:* Contains the chosen anonymization method and the parameters, e.g., k for it. In this case we choose k-Anonymity and a k of 8.
 
-- *Section 2:* KPIs are reflecting on the performance in terms of utility of the anonymization method. Note that *privacy* guarantees are kept anyways, KPIs reflect on the actual effects of such guarantees. For example, in the column "Model Risk" there is the "Inverse k" which reflects the chosen k value. The larger those groups are, the less likely it is that we link a single record by chance back to an individual, i.e., 1/k. However, groups might be larger than k, since the modifications can lead to the situation that the smallest group contains more than k individuals. This is reflected in the "Inverse k Effective" which is always smaller or equal than the "Inverse k". More details on the KPIs can be found in the documentation and by clicking on the actual values to open a popup.
+- *Section 2:* KPIs are reflecting the performance in terms of utility of the anonymization method. Note that *privacy* guarantees are kept anyway, KPIs reflect on the actual effects of such guarantees. For example, in the column "Model Risk" there is the "Inverse k" which reflects the chosen k value. The larger those groups are, the less likely it is that we link a single record by chance back to an individual, i.e., 1/k. However, groups might be larger than k, since the modifications can lead to the situation that the smallest group contains more than k individuals. This is reflected in the "Inverse k Effective" which is always smaller or equal to the "Inverse k". More details on the KPIs can be found in the documentation and by clicking on the actual values to open a popup.
 
 - *Section 3:* This section contains information on the affected columns, in particular the columns marked as quasi-identifying for k-Anonymity. The actual hierarchy can be seen by clicking on the "Yes" in the right most columns. Note that the DPPO cannot see any data but metadata.
 
@@ -57,7 +57,7 @@ For this exercise we need to navigate to the SAP HANA Cockpit and locate the ano
 
 <br>![](/exercises/ex4/images/go_back_button.png)
 
-4. Choose the differentially private view.
+4. Choose the differential privacy view.
 
 <br>![](/exercises/ex4/images/dp_anon_view.png)
 

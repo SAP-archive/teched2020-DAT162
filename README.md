@@ -6,11 +6,11 @@ This repository contains the material for the SAP TechEd 2020 session called DAT
 
 ## Overview
 
-This session introduces attendees to the SAP HANA data masking and SAP HANA data anonymization functionality, by the running example of the company ACME. We will use SAP HANA Cloud, SAP HANA Cockpit and the SAP Web IDE. We will show how these features help to get the most of the data, without risking the privacy of individuals. This includes also 
+This session introduces attendees to the SAP HANA data masking and SAP HANA data anonymization functionality, by the running example of the company ACME. We will use SAP HANA Cloud, SAP HANA Cockpit and the SAP Web IDE. We will show how these features help to get the most out of the data, without risking the privacy of individuals.
 
-Our example company ACME has, like any other company, a database of its employees containing amongst other salaries and address information. There are multiple stakeholder personas within ACME that require access to the data, ranging from productive users, to data scientists:
+Our example company ACME has, like any other company, a database of its employees containing, amongst other information, salaries and address information. There are multiple stakeholder personas within ACME that require access to the data, ranging from productive users, to data scientists:
 - **HR Supervisor**: Has to be able to see and maintain any HR data.
-- **HR Call Center agent**: Is of course allowed to see some details, e.g., when an employee calls and asks if the address is still correct. However, some information like the account number of an employee should be hidden that this information cannot be leaked.
+- **HR Call Center agent**: Is of course allowed to see some details, e.g., when an employee calls and asks if the address is still correct. However, some information like the account number of an employee should be hidden so that this information cannot be leaked.
 - **Data Scientist**: This persona requires access to analyze the HR data, e.g., how the payment structure of employees is. Of course, some data is required, but individual salaries must not be revealed.
 
 Throughout this exercise we will use this as a running example.

@@ -1,40 +1,40 @@
-# Exercise 1 - Setting up the Web IDE Project and unerstanding the scenario
+# Exercise 1 - Setting up the Web IDE Project and understanding the scenario
 
-In this exercise, we will set up the Web IDE project, learn how to deploy example data and SQL entities to SAP HANA Cloud and introduce the scenario.
+In this exercise, we will set up the Web IDE project, learn how to deploy example data and SQL entities to SAP HANA Cloud, and introduce the scenario.
 
 ## Exercise 1.1 - Setting API Endpoint, Organization and Space
 
-First, we need to set up the default API endpoint, Organization and Space, our application will be deployed to.
+First, we need to set up the default API endpoint, Organization and Space. Our application will be deployed to this Space.
 
 1. Log into your SAP Web IDE instance.
 2. First, we need to configure the default Cloud Foundry endpoints. In order to do so, please navigate to the "Preferences" Section on the left side of your screen (1) and select the "Cloud Foundry" entry in the "Workspace Preferences" (2) part. At (3) you can configure your API Endpoint, Organization and Space.
 <br>![](/exercises/ex1/images/set_cf_api_endpoint.png)
 3. Please choose an appropriate API Endpoint. This is the same endpoint as your trial account itself, e.g., if you are in Europe, you should choose https://api.cf.eu10.hana.ondemand.com. Once you selected one of those, you are asked for an E-mail and a Password. Please enter the credentials of your account you created in [Exercise 0](../ex0/README.md).
 <br>![](/exercises/ex1/images/login_organization_space.png)
-4. Please select the Organization and the Space as well. For a trial account the "Space" is always "dev" and the organization suffix is always "trial", it look similar like the following screenshot. Please save the settings and proceed.
+4. Please select the Organization and the Space as well. For a trial account the "Space" is always "dev" and the organization suffix is always "trial". It looks similar to the following screenshot. Please save the settings and proceed.
 <br>![](/exercises/ex1/images/chosen_api_endpoint_organization_space.png)
 
 
 ## Exercise 1.2 - Uploading the demo application
 
-The demo application contains example data and prerequistes for the following exercises. In this step, we will upload this to the Web IDE.
+The demo application contains example data and prerequisites for the following exercises. In this step, we will upload this to the Web IDE.
 
-1. Navigate back using the "Home" Button, or log into your SAP Web IDE instance again if you looged out.
-<br>![](/exercises/ex1/images/navigate_home.png)
+1. Navigate back using the "Development" perspective button, or log into your SAP Web IDE instance again if you looged out.
+<br>![](/exercises/ex1/images/navigate_dev.png)
 2. Download the [SalarySQLDemo.zip](/exercises/ex1/downloads/SalarySQLDemo.zip) from this github repository. Click the link, and use the "Download" button, to get the actual file.
 <br>![](/exercises/ex1/images/download_github.png)
 3. Click on the "File" menu, choose "Import" -> "File or Project":
 <br>![](/exercises/ex1/images/import_file_project.png)
 4. Choose the downloaded [SalarySQLDemo.zip](/exercises/ex1/downloads/SalarySQLDemo.zip) from your disk:
 <br>![](/exercises/ex1/images/chosen_file.png)
-5. Uploading will take a bit, depending on your connection, once finished the folder structure should look like this: 
+5. Uploading will take a bit, depending on your connection. Once finished, the folder structure should look like this: 
 <br>![](/exercises/ex1/images/folder_structure.png)
 
 We are now ready to deploy the example application to our SAP HANA Cloud instance.
 
 ## Exercise 1.3 - Deploying the application to SAP HANA Cloud
 
-In this part of Exercise 1 we will build and deploy the example application to SAP HANA Cloud. Note that those steps will be required in the course of this whole lessons a couple of times and we will refer to it.
+In this part of Exercise 1, we will build and deploy the example application to SAP HANA Cloud. Note that these steps will be required in the course of this whole lesson a couple of times and we will refer to them.
 
 1. Right click on the main project "SalarySQLDemo" and choose "Build" -> "Build" from the menu. This will only create the basic structure and framework, we will have to re-do this step before deployment.
 <br>![](/exercises/ex1/images/main_app_build.png)
@@ -53,10 +53,10 @@ In this part of Exercise 1 we will build and deploy the example application to S
 6. Now we can finally deploy the .mtar, which is the last step of the process. Open the "mta_archives" folder in the project, right click on the "SalarySQLDemo_0.0.2.mtar" file and choose "Deploy" -> "Deploy to SAP Cloud Platform".
 <br>![](/exercises/ex1/images/deploy_mtar.png)
 
-7. You will be asked for a destination, while the endpoint chosen in Exercise 1.1 should be pre-chosen. Click "Deploy" to start the deployment.
+7. You will be asked for a destination. The endpoint chosen in Exercise 1.1 should be pre-chosen (if not, please select it in the dropdown menu). Click "Deploy" to start the deployment.
 <br>![](/exercises/ex1/images/final_deploy_endpoint.png)
 
-8. Again, for the very first deployment, this might take a while it will get faster later. Once this is done, the console prints that:
+8. Again, for the very first deployment, this might take a while. It will get faster later. Once this is done, the console prints the following:
 <br>![](/exercises/ex1/images/deployment_successful.png)
 
 
@@ -69,12 +69,12 @@ So please memorize these steps for later.
 
 ## Exercise 1.4 Exploring the data 
 
-After the succesful deployment of the demo project including demo data, we want to explore that data to get an idea of the scenario. During this process we will learn how to access the "Database Explorer" and execute SQL queries.
+After the successful deployment of the demo project including demo data, we want to explore that data to get an idea of the scenario. During this process we will learn how to access the "Database Explorer" and execute SQL queries.
 
 1. Navigate to the "Database Explorer" in your SAP Web IDE:
 <br>![](/exercises/ex1/images/db_explorer.png)
 
-2. Since we did not add any database yet, the system asks us to do so. We confirm that with "Yes":
+2. Since we did not add any database yet, the system asks us to do so. We confirm that with "Yes". If this window does not show up, click on the "+" button.
 <br>![](/exercises/ex1/images/add_new_db_dialogue.png)
 
 3. Choose the "salary_demo_hdi_db" and press "Ok".
@@ -128,7 +128,7 @@ WHERE "gender" = 'm';
 ```
 ## Exercise 1.5 - Understanding the demo scenario
 
-In this exercise, we outline the scenario that is valid for the remaining part of this hands-on sesion: 
+In this exercise, we outline the scenario that is valid for the remaining part of this hands-on session:
 
 The HR department of a company holds their employee data in a database. This database contains a single table SALARIES with one record for each employee and the following fields:
 
@@ -148,7 +148,7 @@ The column names make the type of stored information obvious. From a privacy poi
 
 1. Direct identifiers: ACCOUNT_NO is a uniquely identifying column for each person, FIRST_NAME and LAST_NAME in conjunction are also uniquely identifying. In order to anonymize a data set these values must not be released at all!
 2. Sensitive values: SALARY is a sensitive value. In an anonymized data set, one should not be able to link its value to a single individual by means of background knowledge.
-3. Quasi-identifiers: all remaining fields are quasi-identifiers. In conjunction (and together with background knowledge), their values may be used to link an entry in the database back to an individual, thus revealing the persons sensitve value or its membership in the database.
+3. Quasi-identifiers: all remaining fields are quasi-identifiers. In conjunction (and together with background knowledge), their values may be used to link an entry in the database back to an individual, thus revealing the person's sensitve information or its membership in the database.
 
 ## Summary
 

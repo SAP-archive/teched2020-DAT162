@@ -6,52 +6,57 @@ This exercise will guide you through masking the account number in a table. We w
 
 ## Exercise Overview
 
-- Configure Data Masking to hide parts of the account number
+- Configure data masking to hide parts of the account number
 - Configure appropriate access roles to view masked and cleartext data
 
 ## Background
 
-Dynamic Data Masking allows you to mask data at the table and view level in SAP HANA. While Authorization is the primary means for access control, dynamic Data Masking provides an additional layer of access control. With this feature you can protect sensitive data by only displaying partial or obfuscated information.
+Dynamic data masking allows you to mask data at the table and view level in SAP HANA. While authorization is the primary means for access control, dynamic data masking provides an additional layer of access control. With this feature you can protect sensitive data by only displaying partial or obfuscated information.
 
-This additional layer of protection allows you to hide data from power DBAs or other users who have broad access rights in the database. You can also use this feature to display or hide sensitive columns depending on a user’s role. One example of this would be if you have a call center where an agent only needs to reference the last four digits of a credit card number rather than the whole value, whereas the customer themselves or a supervisor might want access to the full credit card number. The native Data Masking feature in SAP HANA is dynamically applied during access, the original data stays unchanged.
+This additional layer of protection allows you to hide data from power DBAs or other users who have broad access rights in the database. You can also use this feature to display or hide sensitive columns depending on a user’s role. One example of this would be if you have a call center where an agent only needs to reference the last four digits of a credit card number rather than the whole value, whereas the customer themselves or a supervisor might want access to the full credit card number. The native data masking feature in SAP HANA is dynamically applied during access, the original data stays unchanged.
 
-In particular for our scenario, the *HR_SUPERVISOR* should see all the data, while the *HR_CALL_CENTER_AGENT* should not be able to see the full ACCOUNT_NO of an employee, the call center agent should not see the last three digits of it instead. We will create a SQL view that contains the required data masked, create two roles, one for the supervisors (that have to be able to see any data) and one for the call center agents (that only see the masked ACCOUNT_NO).
+In particular for our scenario, the *HR_SUPERVISOR* should see all the data, while the *HR_CALL_CENTER_AGENT* should not be able to see the full ACCOUNT_NO of an employee. The call center agent should not see the last three digits of it instead. We will create a SQL view that contains the required data masked, create two roles, one for the supervisors (that have to be able to see any data) and one for the call center agents (that only see the masked ACCOUNT_NO).
 
 ## Exercise 2.1 - Configure and Deploy Data Masking via a SQL View
 
 As a very first step we will create the view including the data mask. We will create a file within the SAP Web IDE project that leads to the appropriate view on the SAP HANA cloud instance. Defining the view in the project is recommended, since it will be a portable unit that could be deployed to a different system if required.
 
-1. Open the SAP Web IDE, navigate to the development perspective, you should see the example project files.
+1. Open the SAP Web IDE, navigate to the development perspective. You should see the example project files.
 <br>![](/exercises/ex2/images/development_perspective.png)
 2. Right click on the "db/src/" folder click on "New"->"File".
 <br>![](/exercises/ex2/images/new_file.png)
 3. Name the file "salaries_masked.hdbview" and click "OK".
 <br>![](/exercises/ex2/images/new_salaries_masked_view.png)
-4. The newly created file in the src folder will be opened in an editor. Enter the following SQL like DDL statement and save the file. The masking expression in the last line removes the last three digits of the ACCOUNT_NO.
+4. The newly created file in the src folder will be opened in an editor. Enter the following SQL like DDL statement. The masking expression in the last line removes the last three digits of the ACCOUNT_NO.
 ```SQL
 VIEW "SalarySQLDemo.db::SalariesMasked"("id", "firstname", "lastname", "masked_account_no", "salary", "start_year", "gender", "region", "zipcode", "T-Level", "education") 
 AS SELECT "id",	"firstname", "lastname", "account_no", "salary", "start_year", "gender", "region", "zipcode", "T-Level", "education"  FROM "SalarySQLDemo.db::Salaries"
 WITH MASK ("masked_account_no" USING LEFT("masked_account_no", 3) ||'***');
 ```
-5. Build and deploy the project.
-6. Switch to the database explorer and open the newly created view, by selecting "Views" in the HDI container, right clicking on the "SalariesMasked" and choosing "Open Data".
+5. Save the file by typing "CTRL+S" or using the save button.
+
+<br>![](/exercises/ex2/images/save_button.png)
+
+6. Build (DB module, then project) and deploy the project, as described in the note at the end of (1.3)[/exercises/ex1#exercise-13-deploying-the-application-to-sap-hana-cloud].
+
+7. Switch to the database explorer and open the newly created view, by selecting "Views" in the HDI container, right clicking on the "SalariesMasked" and choosing "Open Data".
 <br>![](/exercises/ex2/images/open_view.png)
-7. You will notice that the account number is masked, and the last three digits are invisible.
+8. You will notice that the account number is masked, and the last three digits are invisible.
 <br>![](/exercises/ex2/images/masked_view_data.png)
 
-In the next step we need define roles, that allow the HR_SUPERVISOR as well as the HR_CALL_CENTER_AGENT to see either the masked or "unmasked" view.
+In the next step we need to define roles that allow the HR_SUPERVISOR as well as the HR_CALL_CENTER_AGENT to see either the masked or "unmasked" view.
 
 ## Exercise 2.2 - Configure Privileged and Non-Privileged Roles for Access
 
-After completing this exercise, we will have created two roles, one for the supervisors and one for the call center agents and second we will add the users *HR_SUPERVISOR* and *HR_CALL_CENTER_AGENT* to those roles. We will see the effects of the masking expression in example queries.
+After completing this exercise, we will have created two roles, one for the supervisors and one for the call center agents. Then we will add the users *HR_SUPERVISOR* and *HR_CALL_CENTER_AGENT* to those roles. We will see the effects of the masking expression in example queries.
 
-1. Roles are defined similar to views in files with the suffix .hdbrole in the project. Therefor, we add a new file, by going back to the development perspective. Right-clicking on the "db/src" folder and choosing "New"->"File".
+1. Roles are defined similar to views in files with the suffix .hdbrole in the project. Therefore, we add a new file by going back to the development perspective, right-clicking on the "db/src" folder and choosing "New"->"File".
 <br>![](/exercises/ex2/images/new_file_role.png)
 
 2. We name the first file "hr_supervisor_role.hdbrole" and press "OK". This will open the role editor in the WebIDE.
 <br>![](/exercises/ex2/images/new_file_role_name.png)
 
-3. **Important Note**: If the editor tells you after creating the file, the following message, please do the following to fix that: Edit the file with the editor as provided in Step (4), save this file, close the editor and re-open it. You might have to enter the role name again, and save it.
+3. **Important Note**: If the editor tells you after creating the file, the following message, please do the following to fix that: Edit the file with the editor as provided in Step (4), save this file, close the editor and re-open it. You might have to enter the role name again, and save it. Additionally, you could also use the code editor (right-clicking on the file, "Open in Code Editor") to double check the effects.
 
 <br>![](/exercises/ex2/images/error_role_file.png)
 
@@ -67,7 +72,7 @@ After completing this exercise, we will have created two roles, one for the supe
 7. As a second role, we create a new file called "hr_call_center_agent_role.hdbrole" and configure it to only be able to select on the "SalariesMasked" view. We set the name to "SalarySQLDemo.db::HRCallCenterAgentRole". The configuration should look like this:
 <br>![](/exercises/ex2/images/call_center_agent_role.png)
 
-8. Save this role as well, build and deploy the project.
+8. Save this role as well. Build (DB module, then project) and deploy the project, as described .in the note at the end of (1.3)[/exercises/ex1#exercise-13-deploying-the-application-to-sap-hana-cloud].
 
 9. As a next step we need to assign the users we created in [Exercise 0](/exercises/ex0). In order to do so, we have to execute SQL commands in an *Admin* Console. Navigate to the Database Explorer, right click on the HDI container and choose "Open SQL Console (Admin)".
 <br>![](/exercises/ex2/images/open_admin_sql_console.png)
@@ -117,6 +122,6 @@ SELECT * FROM "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesMasked";
 
 ## Summary
 
-In this exercise we have seen how specific parts of information can be hidden from a set of users. One neeed to have a specific role to see the actual data.
+In this exercise we have seen how specific parts of information can be hidden from a set of users. One needs to have a specific role to see the actual data.
 
 Continue to - [Exercise 3](../ex3/README.md) to start learning why there is an anonymization feature, and how it works.
