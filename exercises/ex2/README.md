@@ -37,7 +37,7 @@ WITH MASK ("masked_account_no" USING LEFT("masked_account_no", 3) ||'***');
 
 <br>![](/exercises/ex2/images/save_button.png)
 
-6. Build (DB module, then project) and deploy the project, as described in the note at the end of (1.3)[/exercises/ex1#exercise-13-deploying-the-application-to-sap-hana-cloud].
+6. Build (DB module, then project) and deploy the project, as described in the note at the end of [1.3](../ex1#exercise-13-deploying-the-application-to-sap-hana-cloud).
 
 7. Switch to the database explorer and open the newly created view, by selecting "Views" in the HDI container, right clicking on the "SalariesMasked" and choosing "Open Data".
 <br>![](/exercises/ex2/images/open_view.png)
@@ -72,9 +72,9 @@ After completing this exercise, we will have created two roles, one for the supe
 7. As a second role, we create a new file called "hr_call_center_agent_role.hdbrole" and configure it to only be able to select on the "SalariesMasked" view. We set the name to "SalarySQLDemo.db::HRCallCenterAgentRole". The configuration should look like this:
 <br>![](/exercises/ex2/images/call_center_agent_role.png)
 
-8. Save this role as well. Build (DB module, then project) and deploy the project, as described .in the note at the end of (1.3)[/exercises/ex1#exercise-13-deploying-the-application-to-sap-hana-cloud].
+8. Save this role as well. Build (DB module, then project) and deploy the project, as described .in the note at the end of [1.3](../ex1#exercise-13-deploying-the-application-to-sap-hana-cloud).
 
-9. As a next step we need to assign the users we created in [Exercise 0](/exercises/ex0). In order to do so, we have to execute SQL commands in an *Admin* Console. Navigate to the Database Explorer, right click on the HDI container and choose "Open SQL Console (Admin)".
+9. As a next step we need to assign the users we created in [Exercise 0](../ex0). In order to do so, we have to execute SQL commands in an *Admin* Console. Navigate to the Database Explorer, right click on the HDI container and choose "Open SQL Console (Admin)".
 <br>![](/exercises/ex2/images/open_admin_sql_console.png)
 
 10. In this console, we have to execute the following SQL Statements **one-by-one** in order to add the HR_SUPERVISOR user to the appropriate role. In a nutshell, three things are done here. First, a temporary table containing user and role information is created (line 1 and 2). Second, we call a SQL function that finally assigns the user to the role chosen (line 3) and third, drops the temporary table again (line 4).
