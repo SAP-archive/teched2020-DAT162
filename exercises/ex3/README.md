@@ -80,7 +80,7 @@ COLUMN "zipcode" PARAMETERS '{"is_quasi_identifier":true,"hierarchy":{"embedded"
 COLUMN "start_year" PARAMETERS '{"is_quasi_identifier":true, "max": 1, "hierarchy":{"embedded":[["1987","1986-1990","1986-1995"],["1988","1986-1990","1986-1995"],["1989","1986-1990","1986-1995"],["1990","1986-1990","1986-1995"],["1991","1991-1995","1986-1995"],["1992","1991-1995","1986-1995"],["1993","1991-1995","1986-1995"],["1994","1991-1995","1986-1995"],["1995","1991-1995","1986-1995"],["1996","1996-2000","1996-2005"],["1997","1996-2000","1996-2005"],["1998","1996-2000","1996-2005"],["1999","1996-2000","1996-2005"],["2000","1996-2000","1996-2005"],["2001","2001-2005","1996-2005"],["2002","2001-2005","1996-2005"],["2003","2001-2005","1996-2005"],["2004","2001-2005","1996-2005"],["2005","2001-2005","1996-2005"],["2006","2006-2010",">2006"],["2007","2006-2010",">2006"],["2008","2006-2010",">2006"],["2009","2006-2010",">2006"],["2010","2006-2010",">2006"],["2011","2011-2015",">2006"],["2012","2011-2015",">2006"],["2013","2011-2015",">2006"],["2014","2011-2015",">2006"],["2015","2011-2015",">2006"],["2016","2016-2020",">2006"],["2017","2016-2020",">2006"]]}}');
 ```
 
-4. Save the file, build (DB module, then project) and deploy the project, as described in the note at the end of [1.3](../ex1#exercise-13-deploying-the-application-to-sap-hana-cloud).
+4. Save the file, build (DB module, then project) and deploy the project, as described in the note at the end of [1.3](../ex1#exercise-13---deploying-the-application-to-sap-hana-cloud).
 
 5. Open the Database Explorer, and check the views in your HDI container. You should find the newly created one.
 
@@ -132,7 +132,7 @@ COLUMN "zipcode" PARAMETERS '{"is_quasi_identifier":true, "hierarchy":{"function
 COLUMN "start_year" PARAMETERS '{"is_quasi_identifier":true, "max": 1, "hierarchy":{"embedded":[["1987","1986-1990","1986-1995"],["1988","1986-1990","1986-1995"],["1989","1986-1990","1986-1995"],["1990","1986-1990","1986-1995"],["1991","1991-1995","1986-1995"],["1992","1991-1995","1986-1995"],["1993","1991-1995","1986-1995"],["1994","1991-1995","1986-1995"],["1995","1991-1995","1986-1995"],["1996","1996-2000","1996-2005"],["1997","1996-2000","1996-2005"],["1998","1996-2000","1996-2005"],["1999","1996-2000","1996-2005"],["2000","1996-2000","1996-2005"],["2001","2001-2005","1996-2005"],["2002","2001-2005","1996-2005"],["2003","2001-2005","1996-2005"],["2004","2001-2005","1996-2005"],["2005","2001-2005","1996-2005"],["2006","2006-2010",">2006"],["2007","2006-2010",">2006"],["2008","2006-2010",">2006"],["2009","2006-2010",">2006"],["2010","2006-2010",">2006"],["2011","2011-2015",">2006"],["2012","2011-2015",">2006"],["2013","2011-2015",">2006"],["2014","2011-2015",">2006"],["2015","2011-2015",">2006"],["2016","2016-2020",">2006"],["2017","2016-2020",">2006"]]}}');
 ```
 
-12. Build (DB module, then project) and deploy the project, as described in the note at the end of [1.3](../ex1#exercise-13-deploying-the-application-to-sap-hana-cloud).
+12. Build (DB module, then project) and deploy the project, as described in the note at the end of [1.3](../ex1#exercise-13---deploying-the-application-to-sap-hana-cloud).
 
 13. We need to refresh the view again, repeat steps 5-7 in this exercise, i.e., execute the REFRESH statement in the database explorer.
 
@@ -272,13 +272,13 @@ COLUMN "id" PARAMETERS '{"is_sequence":true}'
 COLUMN "salary" PARAMETERS '{"is_sensitive":true, "epsilon" : 0.5, "sensitivity": 100000}');
 ```
 
-4. Build (DB module, then project) and deploy the project, as described in the note at the end of [1.3](../ex1#exercise-13-deploying-the-application-to-sap-hana-cloud).
+4. Build (DB module, then project) and deploy the project, as described in the note at the end of [1.3](../ex1#exercise-13---deploying-the-application-to-sap-hana-cloud).
 
 5. Before we query the results, we need to modify the Data Scientist role, to add a SELECT privilege for the newly created view. Open the "data_scientist_role.hdbrole" file and add a second Object Privilege (click the "+") assigning SELECT privileges for the SalarySQLDemo.db::SalariesDifferentialPrivacy object.
 
 <br>![](/exercises/ex3/images/add_dp_view_to_role.png)
 
-6. Build (DB module, then project) and deploy the project, as described in the note at the end of [1.3](../ex1#exercise-13-deploying-the-application-to-sap-hana-cloud).
+6. Build (DB module, then project) and deploy the project, as described in the note at the end of [1.3](../ex1#exercise-13---deploying-the-application-to-sap-hana-cloud).
 
 7. Now switch to the Database Explorer and open a SQL console.
 
