@@ -34,7 +34,7 @@ Instructions on how to start and use such trials are in [Exercise 0](exercises/e
 - [Exercise 1 - Setting up the Web IDE Project and understanding the scenario](exercises/ex1/)
     - [Exercise 1.1 - Setting API Endpoint, Organization and Space](exercises/ex1#exercise-11---setting-api-endpoint-organization-and-space)
     - [Exercise 1.2 -  Uploading the demo application](exercises/ex1#exercise-12---uploading-the-demo-application)
-    - [Exercise 1.3 - Deploying the application to SAP HANA Cloud](exercise/ex1#exercise-13---deploying-the-application-to-sap-hana-cloud).
+    - [Exercise 1.3 - Deploying the application to SAP HANA Cloud](exercise/ex1#exercises-13---deploying-the-application-to-sap-hana-cloud).
     - [Exercise 1.4 - Exploring the data](exercises/ex1#exercise-14---exploring-the-data)
     - [Exercise 1.5 - Understanding the demo scenario](exercises/ex1#exercise-15---understanding-the-demo-scenario)
 - [Exercise 2 - Data Masking](exercises/ex2/)

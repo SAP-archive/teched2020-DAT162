@@ -96,7 +96,7 @@ REFRESH VIEW "SALARYSQLDEMO"."SalarySQLDemo.db::SalariesKAnonymity" ANONYMIZATIO
 
 <br>![](/exercises/ex3/images/refresh_view.png)
 
-8. **Note:** The following steps in Exercise 3.2 are optional and show how to improve the hierarchy design. If you want to continue with the normal exercise, go to [Exercise 3.4](/exercises/ex3/README.md#exercise-33-showing-the-effects-of-k-anonymity). The motivation for this additional part is that defining embedded hierarchies is a rather cumbersome process for columns with many different values. We will create a SQL Script function for the ZIP Code Hierarchy, that simplifies the process. Switch back to the development perspective and add a new file in the db/src folder.
+8. **Note:** The following steps in Exercise 3.2 are optional and show how to improve the hierarchy design. If you want to continue with the normal exercise, go to [Exercise 3.3](/exercises/ex3/README.md#exercise-33---showing-the-effects-of-k-anonymity). The motivation for this additional part is that defining embedded hierarchies is a rather cumbersome process for columns with many different values. We will create a SQL Script function for the ZIP Code Hierarchy, that simplifies the process. Switch back to the development perspective and add a new file in the db/src folder.
 
 <br>![](/exercises/ex3/images/create_new_file_function.png)
 

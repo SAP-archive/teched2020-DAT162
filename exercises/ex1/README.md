@@ -67,7 +67,7 @@ In this part of Exercise 1, we will build and deploy the example application to 
 
 So please memorize these steps for later.
 
-## Exercise 1.4 Exploring the data 
+## Exercise 1.4 - Exploring the data 
 
 After the successful deployment of the demo project including demo data, we want to explore that data to get an idea of the scenario. During this process we will learn how to access the "Database Explorer" and execute SQL queries.
 
