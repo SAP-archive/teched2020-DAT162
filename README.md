@@ -1,5 +1,7 @@
 # DAT162 - Get the Most from Sensitive Data: SAP HANA Data Anonymization and Masking
 
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/teched2020-DAT162)](https://api.reuse.software/info/github.com/SAP-samples/teched2020-DAT162)
+
 ## Description
 
 This repository contains the material for the SAP TechEd 2020 session called DAT162 - Get the Most from Sensitive Data: SAP HANA data anonymization and masking. 
